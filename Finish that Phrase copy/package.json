@@ -1,0 +1,20 @@
+{
+  "name": "Finish That Phrase",
+  "version": "2.0.0",
+  "description": "An Alexa game used to test the mind",
+  "main": "index.js",
+  "keywords": [
+    "alexa",
+    "skill",
+    "audio streaming"
+  ],
+  "author": "GCNES Creations",
+  "license": "See license in ../LICENSE.txt",
+  "dependencies": {
+    "ask-sdk": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}

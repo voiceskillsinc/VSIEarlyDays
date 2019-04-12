@@ -1,0 +1,2323 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "kind health",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "please off now",
+                        "off now please",
+                        "off now",
+                        "off",
+                        "cancel please",
+                        "please cancel",
+                        "cancel",
+                        "discontinue"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "i need help please",
+                        "help please",
+                        "please help",
+                        "i need help",
+                        "help now",
+                        "please help me",
+                        "help me please",
+                        "help"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "shut it",
+                        "please stand down",
+                        "stand down please",
+                        "shut down",
+                        "shut up",
+                        "turn off",
+                        "please turn off",
+                        "stop please",
+                        "please stop",
+                        "stop it",
+                        "stop "
+                    ]
+                },
+                {
+                    "name": "faqIntent",
+                    "slots": [
+                        {
+                            "name": "faqSubjects",
+                            "type": "faqSubjects"
+                        }
+                    ],
+                    "samples": [
+                        "{faqSubjects}"
+                    ]
+                },
+                {
+                    "name": "customerServiceIntent",
+                    "slots": [],
+                    "samples": [
+                        "i want them to call me",
+                        "call me",
+                        "can i get a call back",
+                        "how can i get a call back",
+                        "how do i do a call back",
+                        "call me back",
+                        "call back",
+                        "how does a call back work",
+                        "how do i get a call back",
+                        "can they call me back",
+                        "can they give me a call back",
+                        "how can i call kind health",
+                        "how do i call them",
+                        "how do i call kind health",
+                        "give me a representative",
+                        "give me a representative now",
+                        "i want a representative",
+                        "i want a representative now",
+                        "i need a representative",
+                        "i need a representative now",
+                        "i want  customer service representative now",
+                        "i need customer service representative",
+                        "how can i contact a customer service representative",
+                        "how can i contact a customer service representative now",
+                        "how can i speak with a  customer service representative",
+                        "how do i contact a customer service representative",
+                        "how do i contact a customer service representative now",
+                        "i need a customer service representative now",
+                        "i want a customer service representative now",
+                        "i need a customer service representative",
+                        "i want to talk to customer service representative",
+                        "i want to talk to a customer service representative",
+                        "i need to talk to a customer service representative",
+                        "i need to talk to customer service representative now",
+                        "i want to talk to customer service representative now",
+                        "customer service representative",
+                        "customer service rep",
+                        "i need to speak with someone",
+                        "how do i get into contact with someone",
+                        "how do i get into contact with customer service",
+                        "give me customer service",
+                        "thanks customer service",
+                        "thank you customer service please",
+                        "i want customer service",
+                        "i need customer service",
+                        "can i reach customer service",
+                        "how can i reach customer service",
+                        "how can reach a person",
+                        "i need to talk to a person now",
+                        "i need to talk to a person",
+                        "i want to talk to a person",
+                        "i want to talk to a person now",
+                        "can i talk to a person",
+                        "how can I talk to a person about health care",
+                        "how can I talk to a person",
+                        "now customer service",
+                        "customer service now",
+                        "customer service",
+                        "please customer service",
+                        "customer service please",
+                        "i need to talk to someone",
+                        "i want to talk to customer service now",
+                        "i want to talk to customer service",
+                        "how can i talk to someone",
+                        "I want to talk to someone"
+                    ]
+                },
+                {
+                    "name": "mainMenu",
+                    "slots": [],
+                    "samples": [
+                        "i want to see the main menu",
+                        "i think i need the mian menu",
+                        "proceed to the main menu",
+                        "sure the main menu",
+                        "sure the main menu please",
+                        "the main menu",
+                        "take me back to the main menu",
+                        "I need to see the main menu",
+                        "please take me to main menu",
+                        "please the main menu",
+                        "please take me to the main menu",
+                        "back to main menu",
+                        "back to the main menu",
+                        "go to main menu",
+                        "main menu thanks",
+                        "mian menu now",
+                        "main menu now please",
+                        "let's go to the main menu",
+                        "give me the main menu",
+                        "main menu thank you",
+                        "to the main menu",
+                        "I need main menu",
+                        "please give me the main menu",
+                        "I want the main menu",
+                        "go to the main menu",
+                        "I need to go to the main menu",
+                        "I need the main menu",
+                        "please main menu",
+                        "main menu please",
+                        "I want to go to the main menu",
+                        "main menu",
+                        "take me to the main menu"
+                    ]
+                },
+                {
+                    "name": "lostCardIntent",
+                    "slots": [],
+                    "samples": [
+                        "new insurance card",
+                        "new id card",
+                        "new card",
+                        "how can i get a card",
+                        "how can i get a new card",
+                        "reorder a replacement id card",
+                        "reorder a replacement insurance card",
+                        "reorder a replacement card",
+                        "how do i reorder a card",
+                        "how do i reorder a id card",
+                        "how do i reorder an id card",
+                        "how do i reorder a insurance card",
+                        "how do i reorder an insurance card",
+                        "how do i reorder a new insurance card",
+                        "need a new id card",
+                        "need a new insurance card",
+                        "need a new card",
+                        "can you help me replace my insurance card",
+                        "can you help me replace my id card",
+                        "how do I replace an id card",
+                        "how do I replace a insurance card",
+                        "how do I replace an insurance card",
+                        "replacev my insurance card",
+                        "replace insurance card",
+                        "replacement insurance card",
+                        "please help me replace my insurance card",
+                        "please help me replace my id card",
+                        "insurance card replacement",
+                        "how do i replace my insurance card",
+                        "how do i replace my id card",
+                        "how do i replace my card",
+                        "I need to replace my card",
+                        "I need a card replacement",
+                        "I need an id card replacement",
+                        "I need an insurance card replacement",
+                        "how can I get a new insurance card",
+                        "how can I get a new id card",
+                        "where can I get a new insurance card",
+                        "where can I get a new id card",
+                        "I need a new id card",
+                        "I lost id card",
+                        "i lost my id card",
+                        "i lost my card",
+                        "how do I go about getting a new insurance card",
+                        "i need a new insurance card",
+                        "i lost my insurance card",
+                        "i need a insurance card",
+                        "i need to get a new card",
+                        "how do i go about getting a new card",
+                        "i want a new card",
+                        "i need a new card",
+                        "how do I get a new card"
+                    ]
+                },
+                {
+                    "name": "noIntent",
+                    "slots": [
+                        {
+                            "name": "noSlot",
+                            "type": "noSlot"
+                        }
+                    ],
+                    "samples": [
+                        "{noSlot}"
+                    ]
+                },
+                {
+                    "name": "yesIntent",
+                    "slots": [
+                        {
+                            "name": "yesSlot",
+                            "type": "yesSlot"
+                        }
+                    ],
+                    "samples": [
+                        "{yesSlot}"
+                    ]
+                },
+                {
+                    "name": "avIntent",
+                    "slots": [
+                        {
+                            "name": "videoSubjects",
+                            "type": "videoSubjects"
+                        }
+                    ],
+                    "samples": [
+                        "{videoSubjects}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.MoreIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateSettingsIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NextIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PreviousIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "callIntent",
+                    "slots": [
+                        {
+                            "name": "phoneNumbers",
+                            "type": "AMAZON.PhoneNumber"
+                        }
+                    ],
+                    "samples": [
+                        "thank you {phoneNumbers}",
+                        "thanks {phoneNumbers}",
+                        "awesome {phoneNumbers}",
+                        "sure thing {phoneNumbers}",
+                        "sure {phoneNumbers}",
+                        "great {phoneNumbers}",
+                        "okay {phoneNumbers}",
+                        "my number {phoneNumbers}",
+                        "is my number {phoneNumbers}",
+                        "great my number {phoneNumbers}",
+                        "great my number is {phoneNumbers}",
+                        "great my {phoneNumbers}",
+                        "that is great have them give me a ring at {phoneNumbers}",
+                        "that is great give me a ring at {phoneNumbers}",
+                        "here is my number {phoneNumbers}",
+                        "okay my number is {phoneNumbers}",
+                        "my number is {phoneNumbers}",
+                        "thanks my number {phoneNumbers}",
+                        "thanks my number is {phoneNumbers}",
+                        "thanks have them call {phoneNumbers}",
+                        "thanks give me a call at {phoneNumbers}",
+                        "thanks have them call me at {phoneNumbers}",
+                        "great have them call me at {phoneNumbers}",
+                        "great have them call {phoneNumbers}",
+                        "okay have them give me a call {phoneNumbers}",
+                        "okay call me at {phoneNumbers}",
+                        "great call me back at {phoneNumbers}",
+                        "great give me a call at {phoneNumbers}",
+                        "okay great give me a call at {phoneNumbers}",
+                        "please I would like a call back {phoneNumbers}",
+                        "please I would like a call back at {phoneNumbers}",
+                        "tell them to call me  {phoneNumbers}",
+                        "tell them to call me at {phoneNumbers}",
+                        "have them give me a call  {phoneNumbers}",
+                        "have them call me at {phoneNumbers}",
+                        "tell them they need to call me at {phoneNumbers}",
+                        "please tell them to call {phoneNumbers}",
+                        "tell them to call {phoneNumbers}",
+                        "tell to call {phoneNumbers}",
+                        "tell them to call me back at {phoneNumbers}",
+                        "I need a call back at {phoneNumbers}",
+                        "give me a call {phoneNumbers}",
+                        "give me a call at {phoneNumbers}",
+                        "awesome please give me a call at {phoneNumbers}",
+                        "awesome give me a call at {phoneNumbers}",
+                        "cool please call me at {phoneNumbers}",
+                        "sure call me back at {phoneNumbers}",
+                        "okay call me back at {phoneNumbers}",
+                        "have can kind health call me back {phoneNumbers}",
+                        "have kind health call me back at {phoneNumbers}",
+                        "have them call me back at {phoneNumbers}",
+                        "can someone call me at {phoneNumbers}",
+                        "can I have someone call me at {phoneNumbers}",
+                        "can I have someone call me back at {phoneNumbers}",
+                        "i would like a call back at {phoneNumbers}",
+                        "please give me a call back at {phoneNumbers}",
+                        "Please call me back at {phoneNumbers}",
+                        "need a call back {phoneNumbers}",
+                        "need a call back at {phoneNumbers}",
+                        "i need a call back {phoneNumbers}",
+                        "can i get a call back {phoneNumbers}",
+                        "can I get a call back at {phoneNumbers}",
+                        "call {phoneNumbers}",
+                        "call me now please at {phoneNumbers}",
+                        "call me {phoneNumbers}",
+                        "call me at {phoneNumbers}",
+                        "have them give me a call back {phoneNumbers}",
+                        "have them give me a call at {phoneNumbers}",
+                        "have them give me a call back at {phoneNumbers}",
+                        "call me back {phoneNumbers}",
+                        "call me back at {phoneNumbers}",
+                        "give me a call back {phoneNumbers}",
+                        "give me a call back at {phoneNumbers}",
+                        "I want a call back {phoneNumbers}",
+                        "{phoneNumbers}",
+                        "I want a call back at {phoneNumbers}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ResumeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "avIntentTwo",
+                    "slots": [
+                        {
+                            "name": "videoSubjectsTwo",
+                            "type": "videoSubjectsTwo"
+                        }
+                    ],
+                    "samples": [
+                        "{videoSubjectsTwo}"
+                    ]
+                },
+                {
+                    "name": "faqIntentThree",
+                    "slots": [
+                        {
+                            "name": "faqSubjectsThree",
+                            "type": "faqSubjectsThree"
+                        }
+                    ],
+                    "samples": [
+                        "{faqSubjectsThree}"
+                    ]
+                },
+                {
+                    "name": "badIntent",
+                    "slots": [
+                        {
+                            "name": "faqRequests",
+                            "type": "faqRequests"
+                        }
+                    ],
+                    "samples": [
+                        "{faqRequests}",
+                        "test"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "faqSubjects",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "how can i buy life insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how can i buy cancer insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how can i buy dental insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how can i buy vision insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how can i buy health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how can i see if my doctor is in network"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is their a plan to cover out of pocket cost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what are the dates for open enrollment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a copayment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a coinsurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a deductbile"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is gap insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "gap insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is the difference between a copayment and coinsurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i just keep buying short term coverage"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i just keep buying short term coverage indefinitely"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how much does cancer insurance cost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how much does life insurance cost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how much does vision insurance cost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "How much does dental insurance cost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how much does health insurance cost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do i buy Life insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do i buy cancer insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do i buy dental insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do i buy vision insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do i buy health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is the referral program"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is the affiliate referral program"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what does an o b g y n specialize in"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what does an obgyn specialize in"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is this source credible"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is the insurance medicaid"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is this insurance medicaid"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "if i experience a life event can our premium be adjusted"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "where do i go to check whether my doctor is in my network"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is health share"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a health share"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "does the private insurance accept pre existing condition"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "does the private insurance accept pre-existing condition"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is there some sort of plan that would cover that out of pocket cost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i was wondering if you could add a family member on a family plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i was wondering if you could add a family member on a family insurance plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you assist with group insurance or only individual"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you help with cobra"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i just keep buying short term coverage indefinitely? why should i switch to a traditional individual or family plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what kind of tax penalty will i need to pay if i stick with my short term plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i use my health insurance for someone else"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you have gap insurance to cover a deductible"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you have gap insurance to cover the deductible"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i recently moved to the US. what documents are needed for me to purchase a policy outside of open enrollment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i recently moved to the US. what documentation is needed to allow me to purchase a policy outside of open enrollment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i am looking for dental insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i'm looking for dental insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is there coverage that begins now"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is there any coverage that can begin now"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "when will i receive my insurance card"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "when will i receive my i d card"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "when will i receive my id card"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why does it say that the effective date is x"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what are the dates for open enrollment period"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is medicare"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what's a point of service plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a point of service plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what's a p o s"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what's a pos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a p o s"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a pos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what's a health maintenance organization"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what's a h m o"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what's a hmo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a health maintenance organization"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a h m o"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a hmo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a e p o"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what's a e p o"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what's a epo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a exclusive provider organization plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a epo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a preferred provider organization plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is p p o plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is ppo plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what's conventional indemnity plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is conventional indemnity plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i get health insurance if i have a pre existing condition"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i get health insurance if i have a pre-existing condition"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you carry catastrophic plans"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you sell catastrophic plans"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you carry Vision insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you sell Vision insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you carry cancer insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you sell cancer insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you carry life insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you sell life insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you carry dental insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you sell dental insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": " what is an indemnity plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is indemnity plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a gatekeeper"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "who is a gatekeeper"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what’s the difference between a copayment and coinsurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is copayment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is coinsurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what does deductible mean"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what does health insurance mean"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "noSlot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "please no"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "no please"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "negative"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nevermind"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i don't think so"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "not"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "not right now"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "not now"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nope"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "no thank you"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "no"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "yesSlot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "fine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "that will be fine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "now please"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "yes now"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "okay"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "yes thank you"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "please yes"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "yes please"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "please do"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "yes"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "videoSubjects",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "can i use someone else's health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how much is health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you love health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i am thinking about a limited health plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "truth about our health insurance competitors"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is the truth about our health insurance competitors"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "are you swimming in healthcare data"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i need peace of mind and protection from monsters"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is your misson"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is the metallic tier system"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "kind health squirrels"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is there a better place then the marketplace"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is my o b g y n a specialist"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is my obgyn a specialist"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is an o b g y n a specialist"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is an obgyn a specialist"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is my medication covered by insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i am interested in companies that give incentives for exercising"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i paid for corba but by Health insurance is showing up as canceled"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i need to find perfect plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i need the perfect plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i need to pick a plan that works me and my family"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how much does health insurance cost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how much does a healthcare broker cost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how long does it take to enroll"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how is my p c p is selected"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how is my primary care physician is selected"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how does vision and dental factor into the marketplace"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do i compare health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is my doctor a specialist"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i am a college student what about health care"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how can i get a lower deductible"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why are doctors incentivized to move towards preventative care"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how can i find the right healthcare plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "does healthcare.gov have the cheapest plans"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "does age affect my health insurance cost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do i pay a penalty for not having health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do i need a dental plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do i get a health insurance subsidy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i just purchased health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do i climb the health insurance mountain"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "please explain overseas travel for an extended period of time"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i use someones health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i list my p a as my p c p"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i list my physicians assistant as my primary care physician"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i cover my family"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can anyone buy health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tell me about affordable health insurance"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "videoSubjectsTwo",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "what is kind health"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "will my plan cover weight loss surgery"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "will my healthcare cover pregnancy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "will h s a save me money"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "will hsa save me money"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "will an h s a save me money"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "will an hsa save me money"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why are we still using fax machines"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why is health insurance so expense"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why did my insurance plan change at the end of the year"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why are people mad about obamacare"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why are my health insurance premiums going up"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what manages my h s a account"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what manages my hsa account"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "where did ppo go"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "where did p p o go"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "where did my p p o go"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "where did my ppo go"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is the difference between preferred and non preferred drugs"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is an hmo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is an h m o"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what does a insurance broker do"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is the scarlet letter law"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is the deadline for signing up for healthcare"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "i need the best plan for me"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is the best plan for me"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is open enrollment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is considered tobacco use"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is an online exchange plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "manages h s a accounts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "manages hsa accounts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "who manages my hsa account"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "who manages my h s a account"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is an e p o"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is an epo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a qualifying event"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a pcp"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a p c p"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a primary care physician"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a pre-existing condition"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a preexisting condition"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a preferred provider organization plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a ppo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a point of service plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a pos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a p o s"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a high deductible plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do i need a health savings account"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a health saving account"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a health insurance network"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what are deductibles"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a deductible"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a copayment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a co-pay"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a co pay"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a copay"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what if i miss open enrollment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what if i have an out of network emergency"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what does out of pocket mean"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what does health insurance cover"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what do you mean personal health advocate"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what are the deadlines for open enrollment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what are the differences between health insurance carriers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "welcome to Kind health"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "faqSubjectsThree",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "what is a life event"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why should i buy from you"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a catastrophic plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you have anything that will help with maternity and childbirth"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you have anything that will help with maternity and childbirth expenses"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what are life events"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is life events"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is cobra"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is an insurance card"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a health insurance card"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "are you better than other companies"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how are you better than other companies"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why should i buy health insurance from you"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is out of network provide"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is an out of network provider"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a in-network provider"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a in network provider"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what are catastrophic plans"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is cancer insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is life insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is dental insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is an out of pocket cost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is an out of pocket costs"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is out of pocket cost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is out of pocket costs"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how can i get an h s a"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how can i get an hsa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how can i get a h s a"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how can i get a hsa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why should i get my h s a through kind health"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why should i get my hsa through kind health"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "are there fees associated with an h s a"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "are there fees associated with an hsa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do the h s a tax savings work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do the hsa tax savings work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what are my investment options in an h s a"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what are my investment options in an hsa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do i use my h s a"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do i use my hsa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is the money in my h s a account safe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is the money in my hsa account safe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i roll over funds from other accounts into my h s a"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i roll over funds from other accounts into my hsa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how much can i contribute to my h s a"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how much can i contribute to my hsa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what insurance plans are h s a compatible"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what insurance plans are hsa compatible"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what are qualified medical expenses"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why should i consider getting a h s a"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why should i consider getting a hsa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is an hsa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is an h s a"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how does a health savings account work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is the difference between a routine eye exam and a contact lens exam"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why do i need a eye exam"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why do i need an eye exam"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what's short term health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is short-term health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is short term health insurance"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "faqRequests",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "who can i call if i need help"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "when can my coverage start"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a indemnity plan work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "will using you cost me anything"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what kind of tax penalty will i need to pay if i stick with my short-term plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i get a tax subsidy to help pay for my short-term health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "is short-term health insurance available for families"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you offer short-term health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you have short-term insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you carry short-term insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you sell short-term insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how much is short-term health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how quick can i get coverage under short-term"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how quickly can i get coverage under short-term"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "does short term health insurance provide coverage for pre-existing conditions"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "does short term health insurance provide coverage for pre existing conditions"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a dental network plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a dental h m o plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a dental hmo plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "where are the other dental insurance plans that i am familiar with"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you offer the best dental price"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you offer the best dental prices"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is the difference between an in network and an out of network dentist"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a dental p p o"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a dental ppo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what kinds of dental plans are available"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how does dental insurance work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do short term health insurance plans include dental and vision benefits"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i use my plan without my insurance card"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i use my plan without my card"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i contact someone if i need help"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "if i apply for an insurance plan do i have to buy it"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "if i apply for an insurance plan do i have to buy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do i make health insurance payments"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do you protect my information"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do you protect my private information"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why should i buy from you"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why should i shop with you"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "when does my coverage start"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is the best health insurance plan for me"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what's the best health insurance plan for me"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is the difference between in network and out of network providers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how does an hsa work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how does an h s a work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how does an indemnity plan work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how does a p o s plan work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how does a pos plan work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how does an hmo work, how does an h m o work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how does an h m o plan work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how does an hmo plan work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "where can i find p p o plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "where can i find ppo plan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how does a p p o plan work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how does a ppo plan work"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what kinds of individual insurance plans are available"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is individual health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you offer the best price"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you offer the best prices"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what companies do you work with"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what insurance companies do you work with"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "how do you make money"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you charge a fee for your service"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "do you charge a fee for your services"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i get health insurance if i have a pre existing condition"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "can i get health insurance if i have a pre-existing condition"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "will using kind health cost me anything"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "will using your service cost me anything"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "why do i need health insurance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "what is a dental indemnity plan"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

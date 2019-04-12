@@ -1,0 +1,497 @@
+const Alexa = require('ask-sdk-core');
+const cookbook = require('alexa-cookbook.js');
+const nodemailer = require('nodemailer');
+
+////////////////////////////////////////////////////////
+
+const SKILL_NAME = 'Longoriahaus Dog Training';
+const HELP_MESSAGE = 'You can ask for our contact information, request a call back, or submit a question for our live show, which would you like?';
+const HELP_REPROMPT = 'What can I help you with?';
+const FALLBACK_MESSAGE = 'You can ask for our contact information, request a call back, or submit a question for our live show, which would you like?';
+const FALLBACK_REPROMPT = 'What can I help you with?';
+const CARDPROMPT = 'Howdy, I am Al the Dog Trainer \n \nTo ask a question say: \n“Ask Al”, followed by your question.\n To request a call back say: \n“I would like a call back.” \nTo request my contact information say: \n"Contact information.”\n Or at anytime say:\n "help." ';
+const SMALLIMAGE = 'https://s3.amazonaws.com/longoriahausreliableandhappydogtips/LHDTScard.png';
+const LARGEIMAGE = 'https://s3.amazonaws.com/longoriahausreliableandhappydogtips/LHDTBcard.png';
+const BREAK = '<break time="1s"/>'; 
+
+const openings = [
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Intro1.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Intro2.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Intro3.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Intro4.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Intro5.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Intro6.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Intro7.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Intro8.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Intro9.mp3" />'
+  ];
+
+const whichs = [
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Which1.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Which2.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Which3.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Which4.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Which5.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Which6.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Assist1.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Assist2.mp3" />'
+  ];
+  
+const assist = [
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Assist1.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Assist2.mp3" />'
+  ];
+  
+const helping = [
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Help21.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Help22.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Help23.mp3" />'
+  ];
+  
+const helpDir = [
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/HelpDir1.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/HelpDir2.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/HelpDir3.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/HelpDir4.mp3" />'
+  ];
+
+const phone = [
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Phone11.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Phone12.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Phone13.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Phone14.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Phone15.mp3" />'
+  ];
+  
+const questions = [
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/askQuestion1.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/askQuestion2.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/askQuestion3.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/askQuestion4.mp3" />'
+  ];
+  
+  const phoneCue = [
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/PhoneCue1.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/PhoneCue2.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/PhoneCue3.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/PhoneCue4.mp3" />'
+  ];
+
+const closings = [
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings1.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings2.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings3.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings4.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings5.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings6.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings7.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings9.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings10.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings11.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings12.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings13.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings14.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings15.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings16.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings17.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings19.mp3" />',
+  '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Endings20.mp3" />'
+  ];
+
+  const dogInfo = {
+    "information" : [
+      {
+          "subject": "n/a, n/a, n/a, n/a",
+          "position": "n/a, n/a, n/a, n/a",
+          "bio": "",
+      },
+      {
+          "subject": "n/a, n/a, n/a, n/a",
+          "position": "n/a, n/a, n/a, n/a",
+          "bio": "n/a, n/a, n/a, n/a",
+      },
+      {
+          "subject": "n/a, n/a, n/a, n/a",
+          "position": "n/a, n/a, n/a, n/a",
+          "bio": "n/a, n/a, n/a, n/a",
+      }
+      ]
+    };
+
+  const dogVideos = {
+    "information" : [
+      {
+          "subject": "n/a, n/a, n/a, n/a",
+          "video" : "https://s3.amazonaws.com/buttonpush/videos/Will+my+healthcare+cover+pregnancy%253F.mp4",
+          "audio": "<audio src='https://s3.amazonaws.com/buttonpush.mp3' />",
+          "title": "n/a, n/a, n/a, n/a",
+          "subtitle": "n/a, n/a, n/a, n/a",
+      },
+      {
+          "subject": "n/a, n/a, n/a, n/a",
+          "video" : "https://s3.amazonaws.com/buttonpush/videos/Will+my+plan+cover+weight+loss+surgery%253F.mp4",
+          "audio": "<audio src='https://s3.amazonaws.com/buttonpush.mp3' />",
+          "title": "n/a, n/a, n/a, n/a",
+          "subtitle": "n/a, n/a, n/a, n/a",
+      }
+      ]
+  };
+
+////////////////////////////////////
+
+const LaunchRequestHandler = {
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    return request.type === 'LaunchRequest'
+      || (request.type === 'IntentRequest'
+        && request.intent.name === 'AMAZON.NavigateHomeIntent');
+  },
+  handle(handlerInput) {
+    const randomIntro = cookbook.getRandomItem(openings);
+    const helpsDir = cookbook.getRandomItem(helpDir);
+    const randomWhichs = cookbook.getRandomItem(whichs);
+    const cardTitle = SKILL_NAME;
+    const speechOutput = randomIntro + helpsDir + randomWhichs;
+    const reprompt = cookbook.getRandomItem(whichs);
+
+    return handlerInput.responseBuilder
+      .speak(speechOutput)
+      .reprompt(reprompt)
+      .withStandardCard(cardTitle, CARDPROMPT, SMALLIMAGE, LARGEIMAGE)
+      .getResponse();
+  },
+};
+
+
+const aboutUsIntentHandler = {
+  canHandle(handlerInput) {
+      return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && (handlerInput.requestEnvelope.request.intent.name === 'aboutUsIntent');
+  },
+  handle(handlerInput) {
+
+    const custService = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/About1.mp3" />' + cookbook.getRandomItem(assist);
+    const cardTitle = "How can we help you!";
+    const speechOutput = cookbook.getRandomItem(assist);
+    const cardText = 'Facebook: @Longoriahaus \nInstagram: @Longoriahaus \nTwitter: @SchHAl \nWebsite: Longoriahaus.com \nPhone: (281) 978-6956';
+
+    return handlerInput.responseBuilder
+      .speak(custService)
+      .reprompt(speechOutput)
+      .withStandardCard(cardTitle, cardText, SMALLIMAGE, LARGEIMAGE)
+      .getResponse();
+  },
+};
+
+const customerServiceIntentHandler = {
+  canHandle(handlerInput) {
+      return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && (handlerInput.requestEnvelope.request.intent.name === 'customerServiceIntent');
+  },
+  handle(handlerInput) {
+
+    const cardTitle = "How can we help you?";
+    const speechOutput = cookbook.getRandomItem(phone) + cookbook.getRandomItem(questions) + cookbook.getRandomItem(whichs);
+    const respeechOutput = cookbook.getRandomItem(assist);
+    const cardText = 'We\'d love to help! \nHelping you raise a happy reliable dog is my mission. \nBe sure to connect with me and if I can ever help, please just ask.';
+    
+    return handlerInput.responseBuilder
+      .speak(speechOutput)
+      .reprompt(respeechOutput)
+      .withStandardCard(cardTitle, cardText, SMALLIMAGE, LARGEIMAGE)
+      .getResponse();
+  },
+};
+
+const phoneCueIntentHandler = {
+  canHandle(handlerInput) {
+      return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && (handlerInput.requestEnvelope.request.intent.name === 'phoneCueIntent');
+  },
+  handle(handlerInput) {
+
+    const cardTitle = "How can we help you?";
+    const speechOutput = cookbook.getRandomItem(phoneCue);
+    const respeechOutput = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/AnythingElse.mp3" />';
+    const cardText = 'We\'d love to help! \nHelping you raise a happy reliable dog is my mission. \nBe sure to connect with me and if I can ever help, please just ask.';
+    
+    return handlerInput.responseBuilder
+      .speak(speechOutput)
+      .reprompt(respeechOutput)
+      .withStandardCard(cardTitle, cardText, SMALLIMAGE, LARGEIMAGE)
+      .getResponse();
+  },
+};
+
+const faqHandler = {
+  canHandle(handlerInput) {
+       return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && handlerInput.requestEnvelope.request.intent.name === 'faqIntent';
+  },
+  handle(handlerInput) {
+    const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+
+    const itemSlot = handlerInput.requestEnvelope.request.intent.slots.faqSubjects;
+    let itemName;
+    if (itemSlot && itemSlot.value) {
+      itemName = itemSlot.value.toLowerCase();
+    }
+
+    if (itemName) {
+
+          const responseBuilder = handlerInput.responseBuilder;
+
+          const information = randomArrayElement(getAnswersBySubject(itemName));
+
+          sessionAttributes.information = information.answer;
+          sessionAttributes.information = information.question;
+
+          const speechOutput = information.answer;
+          const cardTitle = information.question;
+          const cardText = information.answer;
+          const reprompt = "Can I help you with anything else?";
+
+          return responseBuilder
+              .speak(speechOutput)
+              .reprompt(reprompt)
+              .withStandardCard(cardTitle, cardText, SMALLIMAGE, LARGEIMAGE)
+              .getResponse();
+
+    } else {
+
+          const responseBuilder = handlerInput.responseBuilder;
+
+          const speechOutput = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Error1.mp3" />';
+          const reprompt = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Error2.mp3" />';
+
+          return responseBuilder
+              .speak(speechOutput)
+              .reprompt(reprompt)
+              .getResponse();
+    }
+  }
+};
+
+const callHandler = {
+  canHandle(handlerInput) {
+      return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && (handlerInput.requestEnvelope.request.intent.name === 'callbackIntent');
+  },
+ handle(handlerInput) {
+   const itemSlot = handlerInput.requestEnvelope.request.intent.slots.phoneNumbers;
+
+    let itemName;
+    if (itemSlot && itemSlot.value) {
+      itemName = itemSlot.value.toLowerCase();
+    }
+
+    if (itemName) {
+        const speechOutput = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Call.mp3" />' + cookbook.getRandomItem(assist);
+        const reachOut = 'Thank you for your phone number! \nGerda, my Client Services Manager, will be in contact soon. \nThank you for contacting us!';
+        const anythingElse = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/AnythingElse.mp3" />';
+
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+            user: 'Longoriahaus@gmail.com',
+            pass: 'DogSkill00'
+            }
+          });
+
+        var mailOptions = {
+            from: 'Longoriahaus@gmail.com',
+              to: 'Longoriahaus@gmail.com',
+         subject: 'New Question from Echo',
+            text: 'An individual from'+" "+ itemName +" "+ 'has requested to talk to you about dog training.'
+          };
+
+        transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+            } else {
+            console.log('Email sent: ' + info.response);
+          }
+        });
+        return handlerInput.responseBuilder
+            .speak(speechOutput)
+            .reprompt(anythingElse)
+            .withStandardCard(SKILL_NAME, reachOut, SMALLIMAGE, LARGEIMAGE)
+            .getResponse();
+    } else {
+       const responseBuilder = handlerInput.responseBuilder;
+
+          const speechOutput = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Error1.mp3" />';
+          const reprompt = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Error2.mp3" />';
+
+          return responseBuilder
+              .speak(speechOutput)
+              .reprompt(reprompt)
+              .withStandardCard(SKILL_NAME, speechOutput, SMALLIMAGE, LARGEIMAGE)
+              .getResponse();
+
+    }
+  },
+};
+
+const questionHandler = {
+  canHandle(handlerInput) {
+      return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && (handlerInput.requestEnvelope.request.intent.name === 'questionIntent');
+  },
+ handle(handlerInput) {
+   const itemSlot = handlerInput.requestEnvelope.request.intent.slots.searchQuery;
+
+    let itemName;
+    if (itemSlot && itemSlot.value) {
+      itemName = itemSlot.value.toLowerCase();
+    }
+
+    if (itemName) {
+        const speechOutput = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Question.mp3" />' + cookbook.getRandomItem(assist);
+        const reachOut = 'Thank you for your question.  \nI answer questions from this skill every Wednesday night at 8 pm Central time on my Facebook page. \nYou can find me at @Longoriahaus ';
+        const anythingElse = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/AnythingElse.mp3" />';
+
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+            user: 'Longoriahaus@gmail.com',
+            pass: 'DogSkill00'
+            }
+          });
+
+        var mailOptions = {
+            from: 'Longoriahaus@gmail.com',
+              to: 'Longoriahaus@gmail.com',
+         subject: 'New Question from Echo',
+            text: 'The following is a user request question for your FaceBook Live Show.'+" "+ "how "+ itemName
+          };
+
+        transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+            } else {
+            console.log('Email sent: ' + info.response);
+          }
+        });
+        return handlerInput.responseBuilder
+            .speak(speechOutput)
+            .reprompt(anythingElse)
+            .withStandardCard(SKILL_NAME, reachOut, SMALLIMAGE, LARGEIMAGE)
+            .getResponse();
+    } else {
+       const responseBuilder = handlerInput.responseBuilder;
+
+          const speechOutput = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Error1.mp3" />';
+          const reprompt = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Error2.mp3" />';
+
+          return responseBuilder
+              .speak(speechOutput)
+              .reprompt(reprompt)
+              .withStandardCard(SKILL_NAME, speechOutput, SMALLIMAGE, LARGEIMAGE)
+              .getResponse();
+
+    }
+  },
+};
+
+const HelpIntentHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent'
+      || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.FallbackIntent');
+  },
+  handle(handlerInput) {
+    const cardTitle = "How can we help?";
+    const speechOutput = cookbook.getRandomItem(helping) + cookbook.getRandomItem(whichs);
+    const reprompt = cookbook.getRandomItem(helping) + cookbook.getRandomItem(assist);
+    const cardText = 'Facebook: @Longoriahaus \nInstagram: @Longoriahaus \nTwitter: @SchHAl \nWebsite: Longoriahaus.com \nPhone: (281) 978-6956';
+
+    return handlerInput.responseBuilder
+      .speak(speechOutput)
+      .reprompt(reprompt)
+      .withStandardCard(cardTitle, cardText, SMALLIMAGE, LARGEIMAGE)
+      .getResponse();
+  },
+};
+
+
+const CancelAndStopIntentHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent'
+        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
+  },
+  handle(handlerInput) {
+    const randomClosing = cookbook.getRandomItem(closings);
+    const cardTitle = "We hope to hear from you soon!";
+    const stopmessage = 'Facebook: @Longoriahaus \nInstagram: @Longoriahaus \nTwitter: @SchHAl \nWebsite: Longoriahaus.com \nPhone: (281) 978-6956';
+
+    return handlerInput.responseBuilder
+      .speak(randomClosing)
+      .withStandardCard(cardTitle, stopmessage, SMALLIMAGE, LARGEIMAGE)
+      .getResponse();
+  },
+};
+
+const SessionEndedRequestHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
+  },
+  handle(handlerInput) {
+    console.log(`Session ended with reason: ${handlerInput.requestEnvelope.request.reason}`);
+
+    return handlerInput.responseBuilder.getResponse();
+  },
+};
+
+const ErrorHandler = {
+  canHandle() {
+    return true;
+  },
+  handle(handlerInput, error) {
+    console.log(`Error handled: ${error.message}`);
+    const speechOutput = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Error1.mp3" />';
+    const reprompt = '<audio src="https://s3.amazonaws.com/longoriahausreliableandhappydogtips/skillAudio/Error2.mp3" />';
+
+    return handlerInput.responseBuilder
+      .speak(speechOutput)
+      .reprompt(reprompt)
+      .getResponse();
+  },
+};
+
+function getAnswersBySubject(sub) {
+    const list = [];
+    for (let i = 0; i < dogInfo.information.length; i += 1) {
+        if (dogInfo.information[i].subject.search(sub) > -1) {
+            list.push(dogInfo.information[i]);
+        }
+    }
+    return list;
+}
+
+function randomArrayElement(array) {
+    let i = 0;
+    i = Math.floor(Math.random() * array.length);
+    return (array[i]);
+}
+
+///////////////////////
+
+const skillBuilder = Alexa.SkillBuilders.custom();
+
+exports.handler = skillBuilder
+  .addRequestHandlers(
+    LaunchRequestHandler,
+    aboutUsIntentHandler,
+    customerServiceIntentHandler,
+    phoneCueIntentHandler,
+    callHandler,
+    questionHandler,
+    faqHandler,
+    HelpIntentHandler,
+    CancelAndStopIntentHandler,
+    SessionEndedRequestHandler
+  )
+  .addErrorHandlers(ErrorHandler)
+  .lambda();
